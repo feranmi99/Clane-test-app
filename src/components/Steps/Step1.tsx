@@ -1,10 +1,7 @@
 "use client"
 
-import { useForm, SubmitHandler } from "react-hook-form";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { toast } from 'react-toastify';
-
 
 export interface StepProps {
     formData?: FormData;
@@ -95,7 +92,6 @@ const Step1: React.FC<StepProps> = ({ formData, setFormData, nextStep }) => {
             <div className="text flex justify-end mt-5">
                 <button
                     type="submit"
-                    // onClick={() => nextStep()}
                     className="w-fit  bg-blue-700 text-white px-5 font-semibold py-2 rounded-md hover:bg-blue-700 focus:outline-none">
                     Next Step
                 </button>

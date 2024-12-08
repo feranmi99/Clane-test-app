@@ -8,10 +8,6 @@ import Step4 from "@/components/Steps/Step4";
 import LayoutSlider from '@/components/Layout';
 import Step5 from "@/components/Steps/Step5";
 
-type LayoutProps = {
-    children: React.ReactNode;
-};
-
 interface FormData {
     name?: string;
     email?: string;
@@ -21,7 +17,7 @@ interface FormData {
   }
   
 
-const page = () => {
+const Page = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const [formData, setFormData] = useState<FormData>({});
 
@@ -66,4 +62,4 @@ console.log(formData)
     )
 }
 
-export default page
+export default Page

@@ -5,7 +5,6 @@ const Step5 = () => {
         <>
             <div className="!w-[200px] borer border-red-500 bg-white p-10 rounded-r-lg">
                 <div className="flex flex-col items-center">
-                    {/* Checkmark Icon */}
                     <div className="w-16 h-16 flex items-center justify-center rounded-full bg-red-100 mb-5">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -23,10 +22,8 @@ const Step5 = () => {
                         </svg>
                     </div>
 
-                    {/* Heading */}
                     <h2 className="text-2xl font-bold text-gray-800 mb-4">Thank you!</h2>
 
-                    {/* Message */}
                     <p className="text-center text-gray-500 leading-6">
                         Thanks for confirming your subscription! We hope you have fun
                         using our platform. If you ever need support, please feel free to

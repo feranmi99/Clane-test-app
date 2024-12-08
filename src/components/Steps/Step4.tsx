@@ -1,11 +1,6 @@
 "use client"
 
-import { useForm, SubmitHandler } from "react-hook-form";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { useState } from "react";
 import { StepProps } from "./Step1";
-import { toast } from "react-toastify";
 
 
 const Step4: React.FC<StepProps> = ({
@@ -46,7 +41,6 @@ const Step4: React.FC<StepProps> = ({
             <p className=" opacity-60 py-5 leading-5 text-[0.99rem]">Double-check everything looks OK before confirming</p>
 
             <div className="bg-blue-50 p-4 rounded-lg mb-6">
-                {/* Selected Plan */}
                 <div className="flex justify-between items-center border-b pb-4 mb-4">
                     <div>
                         <p className="font-bold">
