@@ -41,7 +41,7 @@ const Step4: React.FC<StepProps> = ({
         nextStep()
     }
     return (
-        <div className="bg-white">
+        <div className="md:w-[400px] w-fit p-5">
             <h2 className="text-2xl font-[700] font-sans">Finishing up  </h2>
             <p className=" opacity-60 py-5 leading-5 text-[0.99rem]">Double-check everything looks OK before confirming</p>
 

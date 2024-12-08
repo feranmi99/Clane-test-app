@@ -21,7 +21,7 @@ const Step2: React.FC<StepProps> = ({
   nextStep,
   prevStep }) => {
   // const [selectedPlan, setSelectedPlan] = useState<string>(formData?.selectedPlan || "Advanced");
-  const [selectedPlan, setSelectedPlan] = useState<string>(formData?.selectedPlan || "Advanced");
+  const [selectedPlan, setSelectedPlan] = useState<FormData>(formData?.selectedPlan || "Advanced");
 
   const [billingCycle, setBillingCycle] = useState<FormData>(formData?.billingCycle ||"Monthly");
 
@@ -41,7 +41,7 @@ const Step2: React.FC<StepProps> = ({
   };
 
   return (
-    <div className="bg-white w-fit">
+    <div className="md:w-[400px] w-fit p-5">
       <h2 className="text-2xl font-[700] font-sans">Select Your Plan</h2>
       <p className=" opacity-60 py-5 leading-5 text-[0.99rem]">You have the option of monthly or yearly billing.</p>
 
@@ -71,7 +71,7 @@ const Step2: React.FC<StepProps> = ({
           ))}
         </div>
 
-        <div className="flex items-center gap-4  mt-8 bg-slate-100 justify-center py-2 rounded-md">
+        <div className="flex items-center gap-4  mt-5 bg-slate-100 justify-center py-2 rounded-md">
           <span
             className={`font-bold ${billingCycle === "Monthly" ? "text-black" : "text-gray-500"
               }`}
@@ -98,7 +98,7 @@ const Step2: React.FC<StepProps> = ({
         </div>
       </div>
 
-      <div className="text flex justify-between mt-5">
+      <div className="text flex justify-between mt-3">
         <button
           type="submit"
           onClick={() => prevStep()}
