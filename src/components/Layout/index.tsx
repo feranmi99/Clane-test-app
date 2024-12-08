@@ -56,7 +56,7 @@ const LayoutSlider = ({ currentStep = 1, children, setCurrentStep }: Props) => {
                                 ))}
                             </div>
                         </div>
-                        <div className='w-5/6 md:justify-normal bg-white md:rounded-none rounded-lg -mt-[40px] z-50 !mx-auto justify-center md:mt-0 border md:shadow-none shadow-lg flex md:ms-20 ms-10 md:w-2/3 px-6 py-8'>
+                        <div className='w-5/6 md:justify-normal bg-white md:rounded-none rounded-lg -mt-[40px] z-50 !mx-auto justify-center md:mt-0 md:shadow-none shadow-lg flex md:ms-20 ms-10 md:w-2/3 px-6 py-8'>
                             {children}
                         </div>
                     </div>
