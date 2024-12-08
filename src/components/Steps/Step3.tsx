@@ -3,15 +3,17 @@
 import { useState } from "react";
 import { StepProps } from "./Step1";
 import { toast } from "react-toastify";
+import { FormData } from "@/app/(page)/page";
+
 
 const Step3: React.FC<StepProps> = ({
   formData,
   setFormData,
   nextStep,
   prevStep }) => {
-  const [selectedAddOns, setSelectedAddOns] = useState<string[]>(formData.selectedAddOns || []);
+  const [selectedAddOns, setSelectedAddOns] = useState<FormData[] | string[]>(formData?.selectedAddOns || []);
 
-  const billingCycle = formData.billingCycle || "Monthly";
+  const billingCycle = formData?.billingCycle || "Monthly";
 
   const addOns = [
     {
@@ -32,6 +34,7 @@ const Step3: React.FC<StepProps> = ({
   ];
 
   const handleChange = (addOnName: string) => {
+
     setSelectedAddOns((prevState) => {
       if (prevState.includes(addOnName)) {
         return prevState.filter((name) => name !== addOnName);
@@ -46,7 +49,7 @@ const Step3: React.FC<StepProps> = ({
     }
     setFormData({
       ...formData,
-      selectedAddOns,
+      selectedAddOns: selectedAddOns as string[],
     });
     nextStep(); // Proceed to the next step
   };
@@ -60,23 +63,23 @@ const Step3: React.FC<StepProps> = ({
         {addOns.map((addOn, index) => (
           <div
             key={index}
-            onClick={() => handleChange(addOn.name)}
-            className={`flex items-center gap-4 cursor-pointer justify-between p-4 rounded-lg border transition-all ${selectedAddOns.includes(addOn.name) ? "bg-blue-50 border-blue-500" : "bg-white border-gray-300"
+            onClick={() => handleChange(addOn?.name)}
+            className={`flex items-center gap-4 cursor-pointer justify-between p-4 rounded-lg border transition-all ${selectedAddOns.includes(addOn?.name) ? "bg-blue-50 border-blue-500" : "bg-white border-gray-300"
               }`}
           >
             <div className="flex items-center">
               <input
                 type="checkbox"
-                checked={selectedAddOns.includes(addOn.name)}
-                onChange={() => handleChange(addOn.name)}
+                checked={selectedAddOns.includes(addOn?.name)}
+                onChange={() => handleChange(addOn?.name)}
                 className="w-5 h-5 border-blue-500 accent-blue-600 rounded cursor-pointer"
               />
               <div className="ml-4">
-                <p className="text-lg font-medium">{addOn.name}</p>
-                <p className="text-sm text-gray-500">{addOn.description}</p>
+                <p className="text-lg font-medium">{addOn?.name}</p>
+                <p className="text-sm text-gray-500">{addOn?.description}</p>
               </div>
             </div>
-            <span className="text-sm font-semibold text-blue-500">{addOn.price}</span>
+            <span className="text-sm font-semibold text-blue-500">{addOn?.price}</span>
           </div>
         ))}
       </div>

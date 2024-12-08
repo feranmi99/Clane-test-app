@@ -1,19 +1,16 @@
 "use client"
 
+import { FormData } from "@/app/(page)/page";
 import { StepProps } from "./Step1";
+import { PriceType } from "./Step2";
 
-export interface FormData {
-    selectedPlan?: string;
-    billingCycle?: "Monthly" | "Yearly";
-    selectedAddOns?: string[];
-  }
 
 const Step4: React.FC<StepProps> = ({
     formData,
     nextStep,
     setCurrentStep,
     prevStep }) => {
-    const { selectedPlan, billingCycle, selectedAddOns }: FormData = formData;
+    const { selectedPlan, billingCycle, selectedAddOns }: FormData  = formData || {};
 
     const planPricing = {
         Arcade: { Monthly: 9, Yearly: 90 },
@@ -28,14 +25,14 @@ const Step4: React.FC<StepProps> = ({
     };
 
     const planPrice = selectedPlan
-        ? planPricing[selectedPlan][billingCycle]
+        ? planPricing[selectedPlan as keyof typeof planPricing][billingCycle as PriceType]
         : 0;
 
-    const addOnTotal = selectedAddOns?.reduce((total: number, addOn: number) => {
-        return total + addOnPricing[addOn][billingCycle];
+    const addOnTotal = selectedAddOns?.reduce((total: number, addOn: string) => {
+        return total + addOnPricing[addOn as keyof typeof addOnPricing][billingCycle as PriceType];
     }, 0);
 
-    const totalPrice = planPrice + addOnTotal;
+    const totalPrice = planPrice + (addOnTotal ?? 0);
 
     const handleSubmit = () => {
         nextStep()
@@ -54,7 +51,7 @@ const Step4: React.FC<StepProps> = ({
                         <button
                             type="button"
                             className="text-blue-600 underline text-sm"
-                            onClick={() => setCurrentStep(2)}
+                            onClick={() => setCurrentStep?.(2)}
                         >
                             Change
                         </button>
@@ -69,7 +66,7 @@ const Step4: React.FC<StepProps> = ({
                         <div key={index} className="flex justify-between mb-2">
                             <p className="text-gray-600">{addOn}</p>
                             <p className="text-blue-600">
-                                +${addOnPricing[addOn][billingCycle]}/
+                                +${addOnPricing[addOn as keyof typeof addOnPricing][billingCycle as PriceType]}/
                                 {billingCycle === "Monthly" ? "mo" : "yr"}
                             </p>
                         </div>
