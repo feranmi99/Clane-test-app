@@ -52,11 +52,11 @@ const Step3: React.FC<StepProps> = ({
   };
 
   return (
-    <div className="bg-white">
+    <div className="md:w-[400px] w-fit p-5">
       <h2 className="text-2xl font-[700] font-sans">Pick add-ons</h2>
       <p className=" opacity-60 py-5 leading-5 text-[0.99rem]">Add-ons help enhance your gaming experience.</p>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {addOns.map((addOn, index) => (
           <div
             key={index}

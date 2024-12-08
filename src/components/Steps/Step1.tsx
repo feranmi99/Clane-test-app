@@ -43,7 +43,7 @@ const Step1: React.FC<StepProps> = ({ formData, setFormData, nextStep }) => {
     });
 
     return (
-        <form onSubmit={formik.handleSubmit} className="bg-white">
+        <form onSubmit={formik.handleSubmit} className="md:w-[400px] w-fit p-5">
             <h2 className="text-2xl font-[700] font-sans">Personal Info</h2>
             <p className=" opacity-60 py-5 leading-5 text-[0.99rem]">Please provide your name, email address, and phone number.</p>
 
@@ -55,7 +55,7 @@ const Step1: React.FC<StepProps> = ({ formData, setFormData, nextStep }) => {
                     value={formik.values.name}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    className={`w-full px-4 py-2 border leading-5 text-[1rem] font-[700] rounded focus:outline-none focus:ring-2 focus:ring-blue-200 ${formik.touched.name && formik.errors.name ? "border-red-500" : " border-gray-300"}`}
+                    className={`w-full px-4 py-2 border leading-5 text-[14px] font-[500] rounded focus:outline-none focus:ring-2 focus:ring-blue-200 ${formik.touched.name && formik.errors.name ? "border-red-500" : " border-gray-300"}`}
                 />
                 {formik.touched.name && formik.errors.name && (
                     <p className="text-red-500 text-sm py-2 font-bold flex justify-end">{formik.errors.name}</p>
@@ -69,7 +69,7 @@ const Step1: React.FC<StepProps> = ({ formData, setFormData, nextStep }) => {
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    className={`w-full px-4 py-2 border leading-5 text-[1rem] font-[700] rounded focus:outline-none focus:ring-2 focus:ring-blue-200 ${formik.touched.email && formik.errors.email ? "border-red-500" : "border-gray-300"}`}
+                    className={`w-full px-4 py-2 border leading-5 text-[14px] font-[500] rounded focus:outline-none focus:ring-2 focus:ring-blue-200 ${formik.touched.email && formik.errors.email ? "border-red-500" : "border-gray-300"}`}
                 />
                 {formik.touched.email && formik.errors.email && (
                     <p className="text-red-500 text-sm py-2 font-bold flex justify-end">{formik.errors.email}</p>
@@ -83,7 +83,7 @@ const Step1: React.FC<StepProps> = ({ formData, setFormData, nextStep }) => {
                     value={formik.values.phone}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    className={`w-full px-4 py-2 border leading-5 text-[1rem] font-[700] rounded focus:outline-none focus:ring-2 focus:ring-blue-200 ${formik.touched.phone && formik.errors.phone ? "border-red-500" : " border-gray-300 "}`}
+                    className={`w-full px-4 py-2 border leading-5 text-[14px] font-[500] rounded focus:outline-none focus:ring-2 focus:ring-blue-200 ${formik.touched.phone && formik.errors.phone ? "border-red-500" : " border-gray-300 "}`}
                 />
                 {formik.touched.phone && formik.errors.phone && (
                     <p className="text-red-500 text-sm py-2 font-bold flex justify-end">{formik.errors.phone}</p>

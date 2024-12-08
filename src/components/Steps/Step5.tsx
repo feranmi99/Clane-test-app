@@ -3,7 +3,7 @@ import React from 'react'
 const Step5 = () => {
     return (
         <>
-            <div className="!w-[200px] borer border-red-500 bg-white p-10 rounded-r-lg">
+            <div className="md:w-[400px] w-fit p-5">
                 <div className="flex flex-col items-center">
                     <div className="w-16 h-16 flex items-center justify-center rounded-full bg-red-100 mb-5">
                         <svg
