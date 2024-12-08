@@ -34,7 +34,7 @@ const Step3: React.FC<StepProps> = ({
   ];
 
   const handleChange = (addOnName: string) => {
-    setSelectedAddOns((prevState: any) => {
+    setSelectedAddOns((prevState: string[]) => {
       if (prevState.includes(addOnName)) {
         return prevState.filter((name: string) => name !== addOnName);
       } else {
