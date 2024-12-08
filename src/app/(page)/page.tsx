@@ -20,7 +20,14 @@ export interface FormData {
 
 const Page = () => {
     const [currentStep, setCurrentStep] = useState<number>(1);
-    const [formData, setFormData] = useState<FormData | {}>({});
+    const [formData, setFormData] = useState<FormData>({
+        name: '',
+        email: '',
+        phone: '',
+        selectedPlan: '',
+        billingCycle: 'Monthly',
+        selectedAddOns: []
+    });
 
     const nextStep = () => setCurrentStep(currentStep + 1);
     const prevStep = () => setCurrentStep(currentStep - 1);
