@@ -2,13 +2,18 @@
 
 import { StepProps } from "./Step1";
 
+export interface FormData {
+    selectedPlan?: string;
+    billingCycle?: "Monthly" | "Yearly";
+    selectedAddOns?: string[];
+  }
 
 const Step4: React.FC<StepProps> = ({
     formData,
     nextStep,
     setCurrentStep,
     prevStep }) => {
-    const { selectedPlan, billingCycle, selectedAddOns }: any = formData;
+    const { selectedPlan, billingCycle, selectedAddOns }: FormData = formData;
 
     const planPricing = {
         Arcade: { Monthly: 9, Yearly: 90 },

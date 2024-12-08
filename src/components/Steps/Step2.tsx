@@ -21,9 +21,9 @@ const Step2: React.FC<StepProps> = ({
   nextStep,
   prevStep }) => {
   // const [selectedPlan, setSelectedPlan] = useState<string>(formData?.selectedPlan || "Advanced");
-  const [selectedPlan, setSelectedPlan] = useState<string>((formData as any)?.selectedPlan || "Advanced");
+  const [selectedPlan, setSelectedPlan] = useState<string>(formData?.selectedPlan || "Advanced");
 
-  const [billingCycle, setBillingCycle] = useState<FormData>((formData as any)?.billingCycle ||"Monthly");
+  const [billingCycle, setBillingCycle] = useState<FormData>(formData?.billingCycle ||"Monthly");
 
   const plans: Plan[] = [
     { name: "Arcade", price: { Monthly: "$9/mo", Yearly: "$90/yr" }, icon: "🕹️" },

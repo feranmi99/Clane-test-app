@@ -8,7 +8,7 @@ export interface StepProps {
     setFormData: React.Dispatch<React.SetStateAction<FormData>>;
     nextStep: () => void;
     prevStep: () => void;
-    setCurrentStep?: any;
+    setCurrentStep?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 interface FormData {
