@@ -2,28 +2,24 @@
 
 import { useState } from "react";
 import { StepProps } from "./Step1";
-
+import { FormData } from "@/app/(page)/page";
 
 export type PriceType = "Monthly" | "Yearly";
+
 interface Plan {
   name?: string;
   price?: Record<PriceType, string>;
   icon?: string;
 }
-export interface FormData {
-  selectedPlan?: string;
-  billingCycle?: PriceType;
-}
 
-const Step2: React.FC<StepProps> = ({
+const Step2 = ({
   formData,
   setFormData,
   nextStep,
-  prevStep }) => {
-  // const [selectedPlan, setSelectedPlan] = useState<string>(formData?.selectedPlan || "Advanced");
-  const [selectedPlan, setSelectedPlan] = useState<FormData>(formData?.selectedPlan || "Advanced");
+  prevStep }: StepProps) => {
+  const [selectedPlan, setSelectedPlan] = useState<FormData | string>(formData?.selectedPlan || "Advanced");
 
-  const [billingCycle, setBillingCycle] = useState<FormData>(formData?.billingCycle ||"Monthly");
+  const [billingCycle, setBillingCycle] = useState<FormData | string>(formData?.billingCycle || "Monthly");
 
   const plans: Plan[] = [
     { name: "Arcade", price: { Monthly: "$9/mo", Yearly: "$90/yr" }, icon: "🕹️" },
@@ -34,10 +30,10 @@ const Step2: React.FC<StepProps> = ({
   const handleNextStep = () => {
     setFormData({
       ...formData,
-      selectedPlan,
-      billingCycle,
+      selectedPlan: selectedPlan as string,
+      billingCycle: billingCycle as PriceType,
     });
-    nextStep(); // Proceed to the next step
+    nextStep();
   };
 
   return (
@@ -59,7 +55,7 @@ const Step2: React.FC<StepProps> = ({
               <div className="items-start justify-start">
                 <div className="text-3xl">{plan.icon}</div>
                 <h3 className="md:text-xl text-[17px] font-medium md:font-semibold mt-2">{plan.name}</h3>
-                <p className="text-gray-500 mt-1">{plan.price ? plan.price[billingCycle] : "N/A"}
+                <p className="text-gray-500 mt-1">{plan.price ? plan.price[billingCycle as PriceType] : "N/A"}
                 </p>
                 {billingCycle === "Yearly" && (
                   <div className="text-sm mt-1 opacity-55">
@@ -105,11 +101,11 @@ const Step2: React.FC<StepProps> = ({
           className="w-fit text-black px-5 font-semibold py-2 rounded-md focus:outline-none">
           Go back
         </button>
-        <button 
-        type="submit" 
-        onClick={handleNextStep}
+        <button
+          type="submit"
+          onClick={handleNextStep}
 
-        className="w-fit bg-blue-700 text-white px-5 font-semibold py-2 rounded-md hover:bg-blue-700 focus:outline-none">
+          className="w-fit bg-blue-700 text-white px-5 font-semibold py-2 rounded-md hover:bg-blue-700 focus:outline-none">
           Next Step
         </button>
       </div>

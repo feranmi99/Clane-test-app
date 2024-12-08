@@ -8,23 +8,23 @@ import Step4 from "@/components/Steps/Step4";
 import LayoutSlider from '@/components/Layout';
 import Step5 from "@/components/Steps/Step5";
 
-interface FormData {
+export interface FormData {
     name?: string;
     email?: string;
     phone?: string;
     selectedPlan?: string;
     billingCycle?: PriceType;
-  }
-  
+    selectedAddOns?: string[];
+}
+
 
 const Page = () => {
-    const [currentStep, setCurrentStep] = useState(1);
-    const [formData, setFormData] = useState<FormData>({});
+    const [currentStep, setCurrentStep] = useState<number>(1);
+    const [formData, setFormData] = useState<FormData | {}>({});
 
     const nextStep = () => setCurrentStep(currentStep + 1);
     const prevStep = () => setCurrentStep(currentStep - 1);
 
-console.log(formData)
     return (
         <div className=''>
             <LayoutSlider
@@ -56,7 +56,7 @@ console.log(formData)
                     prevStep={prevStep}
                     setCurrentStep={setCurrentStep}
                 />}
-                {currentStep === 5 && <Step5/>}
+                {currentStep === 5 && <Step5 />}
             </LayoutSlider>
         </div>
     )

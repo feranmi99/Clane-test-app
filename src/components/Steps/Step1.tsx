@@ -1,21 +1,18 @@
 "use client"
 
+import { FormData } from "@/app/(page)/page";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 export interface StepProps {
     formData?: FormData;
+    // setFormData: (data: FormData) => void;
     setFormData: React.Dispatch<React.SetStateAction<FormData>>;
     nextStep: () => void;
     prevStep: () => void;
     setCurrentStep?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-interface FormData {
-    name?: string;
-    email?: string;
-    phone?: string;
-}
 
 const Step1: React.FC<StepProps> = ({ formData, setFormData, nextStep }) => {
 
